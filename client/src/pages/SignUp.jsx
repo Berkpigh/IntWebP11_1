@@ -34,14 +34,14 @@ const SignUp = () => {
         />
         <input
           type='email'
-          placeholder='Email'
+          placeholder='Adresse mail'
           id='email'
           className='bg-slate-100 p-3 rounded-lg'
           onChange={handleChange}
         />
         <input
           type='password'
-          placeholder='Password'
+          placeholder='Mot de passe'
           id='password'
           className='bg-slate-100 p-3 rounded-lg'
           onChange={handleChange}
