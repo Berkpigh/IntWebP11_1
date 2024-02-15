@@ -1,9 +1,8 @@
-import React from 'react'
 
 const Home = () => {
   return (
     <div>
-      <h1 className="text-xl text-center">Bienvenue</h1>
+      <h1 className="text-5xl tracking-wide text-center">Bienvenue</h1>
     </div>
   )
 }

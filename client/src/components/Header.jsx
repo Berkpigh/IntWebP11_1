@@ -7,7 +7,7 @@ const Header = () => {
       <Link to='/' >
         <img src={bankLogo} alt="logo argentBankDB" />
       </Link>
-      <ul className='flex gap-4'>
+      <ul className='flex gap-4 text-3xl'>
           <Link to='/'>
             <li>Accueil</li>
           </Link>
