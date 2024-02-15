@@ -1,9 +1,11 @@
 
 const Footer = () => {
-    return <div className="flex justify-between">
-        <p className="text-lg">Contact</p>
-        <p className="text-lg" >Privacy</p>
-    </div>;
+    return (
+    <div className="flex justify-between m-3 max-w-8xl mx-auto p-3 ">
+        <p className="text-3xl">Contact</p>
+        <p className="text-3xl" >Privacy</p>
+    </div>
+    )
 }
 
 export default Footer;
