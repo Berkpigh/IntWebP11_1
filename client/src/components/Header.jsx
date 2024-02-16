@@ -5,25 +5,37 @@ import bankLogo from '../assets/img/argentBankLogo.png'
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user)
   return (
-    <div className="flex justify-between items-center max-w-8xl mx-auto p-3">
+    <nav className="flex justify-between items-center max-w-8xl mx-auto pt-1.5 pb-5">
       <Link to="/">
-        <img src={bankLogo} alt="logo argentBankDB" />
+        <img
+          className="max-w-full w-48"
+          src={bankLogo}
+          alt="logo argentBankDB"
+        />
+        {/* <h1 className='border-0 '>Argent Bank</h1> */}
       </Link>
-      <ul className="flex gap-4 text-3xl">
-        <Link to="/">
-          <li>Accueil</li>
-        </Link>
-        <Link to="/about">
-          <li>A propos</li>
-        </Link>
-        <Link to="/sign-up">
-          <li>S&apos;enregistrer</li>
-        </Link>
-        <Link to="/profile">
-          {currentUser ? <li>Mon profil</li> : <li>Connexion</li>}
-        </Link>
-      </ul>
-    </div>
+      <div>
+        {/*         <a href="/sign-in" className="no-underline mr-2">
+          {currentUser ? '' : <i className=""></i>}
+        </a> 
+        <a href="/sign-in" className="no-underline mr-2">
+          {currentUser ? '' : 'Connexion'}
+        </a>
+        <a href="/sign-up" className="no-underline  mr-2">
+          {currentUser ? (
+            ''
+          ) : (
+            <span className="bg-green-600 text-white">S&apos;enregistrer</span>
+          )}
+          </a> */}
+        <a href="/sign-in" className="no-underline mr-2">
+          Connexion
+        </a>
+        <a href="/sign-up" className="no-underline  mr-2">
+          S&apos;enregistrer
+        </a>
+      </div>
+    </nav>
   )
 }
 

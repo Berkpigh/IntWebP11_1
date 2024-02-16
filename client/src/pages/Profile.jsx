@@ -5,10 +5,6 @@ import {
   updateUserStart,
   updateUserSuccess,
   updateUserFailure,
-  deleteUserStart,
-  deleteUserSuccess,
-  deleteUserFailure,
-  signOut,
 } from '../redux/user/userSlice'
 
 const Profile = () => {
@@ -16,6 +12,7 @@ const Profile = () => {
   const [formData, setFormData] = useState()
   const [updateSuccess, setUpdateSuccess] = useState(false)
   const { currentUser, loading, error } = useSelector((state) => state.user)
+  console.log({ currentUser })
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value })
   }
@@ -23,7 +20,7 @@ const Profile = () => {
     e.preventDefault()
     try {
       dispatch(updateUserStart())
-      const res = await fetch(`http://localhost:3001/api/v1/user/profile/`, {
+      const res = await fetch('http://localhost:3001/api/v1/user/profile/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,32 +39,36 @@ const Profile = () => {
       dispatch(updateUserFailure(error))
     }
   }
-  const handleDeleteAccount = () => {}
-  const handleSignOut = () => {}
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
-          defaultValue={currentUser.username}
+          type="email"
+          placeholder={currentUser.email}
+          id="email"
+          className="bg-slate-100 p-3 rounded-lg"
+          readOnly
+        />
+        <input
+          type="text"
+          placeholder={currentUser.firstName}
+          id="firstName"
+          className="bg-slate-100 p-3 rounded-lg"
+          readOnly
+        />
+        <input
+          type="text"
+          placeholder={currentUser.lastName}
+          id="lastName"
+          className="bg-slate-100 p-3 rounded-lg"
+          readOnly
+        />
+        <input
+          defaultValue={currentUser.userName}
           type="text"
           id="userName"
           placeholder="Nom d'utilisateur"
-          className="bg-slate-100 rounded-lg p-3"
-          onChange={handleChange}
-        />
-        <input
-          defaultValue={currentUser.email}
-          type="email"
-          id="email"
-          placeholder="Email"
-          className="bg-slate-100 rounded-lg p-3"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          id="password"
-          placeholder="Password"
           className="bg-slate-100 rounded-lg p-3"
           onChange={handleChange}
         />
@@ -75,20 +76,11 @@ const Profile = () => {
           {loading ? 'Loading...' : 'Update'}
         </button>
       </form>
-      <div className="flex justify-between mt-5">
-        <span
-          onClick={handleDeleteAccount}
-          className="text-red-700 cursor-pointer"
-        >
-          Delete Account
-        </span>
-        <span onClick={handleSignOut} className="text-red-700 cursor-pointer">
-          Sign out
-        </span>
-      </div>
-      <p className="text-red-700 mt-5">{error && 'Something went wrong!'}</p>
+      <p className="text-red-700 mt-5">
+        {error && 'Une erreur est survenue !'}
+      </p>
       <p className="text-green-700 mt-5">
-        {updateSuccess && 'User is updated successfully!'}
+        {updateSuccess && 'Le profil a été mis à jour !'}
       </p>
     </div>
   )
@@ -96,8 +88,7 @@ const Profile = () => {
 
 export default Profile
 
-{
-  /*   <input
+/*   <input
           type='file'
           ref={fileRef}
           hidden
@@ -129,4 +120,3 @@ export default Profile
             ''
           )}
         </p> */
-}

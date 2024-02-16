@@ -38,7 +38,7 @@ const SignUp = () => {
     }
   }
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <div className="p-3 max-w-lg mx-auto  pb-48">
       <h1 className="text-3xl text-center font-semibold my-7">
         Créer un compte
       </h1>
