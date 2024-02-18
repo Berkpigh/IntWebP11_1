@@ -10,7 +10,11 @@ export default {
         DEFAULT: '#2c3e50',
       },
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        hero: "url('./src/assets/img/bank-tree.jpeg')",
+      },
+    },
   },
   plugins: [],
 }
