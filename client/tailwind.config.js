@@ -30,6 +30,9 @@ export default {
         ccc: '#ccc',
       },
     },
+    backgroundColor: {
+      dark: '#12002b',
+    },
     extend: {
       backgroundImage: {
         hero: "url('./src/assets/img/bank-tree.jpeg')",
