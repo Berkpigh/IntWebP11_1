@@ -10,6 +10,13 @@ export default {
         DEFAULT: '#2c3e50',
       },
     },
+    width: {
+      '300px': '300px',
+      '364px': '364px',
+    },
+    height: {
+      '211px': '211px',
+    },
     extend: {
       backgroundImage: {
         hero: "url('./src/assets/img/bank-tree.jpeg')",
