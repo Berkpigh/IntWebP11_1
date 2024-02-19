@@ -8,14 +8,27 @@ export default {
     colors: {
       grey: {
         DEFAULT: '#2c3e50',
+        222: '#222',
       },
     },
     width: {
+      '100px': '100px',
       '300px': '300px',
       '364px': '364px',
     },
     height: {
       '211px': '211px',
+    },
+    borderWidth: {
+      10: '10px',
+    },
+    borderColor: {
+      green: {
+        feature: '#00bc77',
+      },
+      grey: {
+        ccc: '#ccc',
+      },
     },
     extend: {
       backgroundImage: {

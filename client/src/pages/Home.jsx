@@ -1,4 +1,7 @@
 import React from 'react'
+import iconchat from '../assets/img/icon-chat.png'
+import iconmoney from '../assets/img/icon-money.png'
+import iconsecurity from '../assets/img/icon-security.png'
 
 const Home = () => {
   return (
@@ -15,40 +18,44 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <section className="features">
-          <h2 className="sr-only">Features</h2>
-          <div className="feature-item">
+        <section className="grid grid-cols-3">
+          {/* <h2 className="sr-only">Features</h2> */}
+          <div className="p-10">
             <img
-              src="./img/icon-chat.png"
-              alt="Chat Icon"
-              className="feature-icon"
+              src={iconchat}
+              alt="Icône de chat"
+              className="m-auto w-100px border-8 border-solid border-green-feature rounded-full p-4"
             />
-            <h3 className="feature-item-title">You are our #1 priority</h3>
+            <h3 className="text-grey-222 text-xl font-bold mb-2">
+              You are our #1 priority
+            </h3>
             <p>
               Need to talk to a representative? You can get in touch through our
               24/7 chat or through a phone call in less than 5 minutes.
             </p>
           </div>
-          <div className="feature-item">
+          <div className="p-10">
             <img
-              src="./img/icon-money.png"
-              alt="Chat Icon"
-              className="feature-icon"
+              src={iconmoney}
+              alt="Icône de monnaie"
+              className="m-auto w-100px border-8 border-solid border-green-feature rounded-full p-4"
             />
-            <h3 className="feature-item-title">
+            <h3 className="text-grey-222 text-xl font-bold mb-2">
               More savings means higher rates
             </h3>
             <p>
               The more you save with us, the higher your interest rate will be!
             </p>
           </div>
-          <div className="feature-item">
+          <div className="p-10">
             <img
-              src="./img/icon-security.png"
-              alt="Chat Icon"
-              className="feature-icon"
+              src={iconsecurity}
+              alt="Icône de paier valeur"
+              className="m-auto w-100px border-8 border-solid border-green-feature rounded-full p-4"
             />
-            <h3 className="feature-item-title">Security you can trust</h3>
+            <h3 className="text-grey-222 text-xl font-bold mb-2">
+              Security you can trust
+            </h3>
             <p>
               We use top of the line encryption to make sure your data and money
               is always safe.

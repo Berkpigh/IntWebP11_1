@@ -1,11 +1,9 @@
-
 const Footer = () => {
-    return (
-    <div className="flex justify-around m-3 max-w-8xl mx-auto p-3 ">
-        <p className="text-3xl">Contact</p>
-        <p className="text-3xl" >Conditions d&apos;utilisation</p>
+  return (
+    <div className="flex justify-center py-8 pr-0 pb-6 border-y-2 border-solid border-grey-ccc">
+      <p className="m-0 p-0">Copyright 2020 Argent Bank</p>
     </div>
-    )
+  )
 }
 
-export default Footer;
+export default Footer
