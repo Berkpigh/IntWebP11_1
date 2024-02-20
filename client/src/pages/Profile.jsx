@@ -6,6 +6,7 @@ import {
   updateUserSuccess,
   updateUserFailure,
 } from '../redux/user/userSlice'
+import userprofile from '../assets/img/userprofile.png'
 
 const Profile = () => {
   const dispatch = useDispatch()
@@ -40,42 +41,83 @@ const Profile = () => {
     }
   }
   return (
-    <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          type="email"
-          placeholder={currentUser.email}
-          id="email"
-          className="bg-slate-100 p-3 rounded-lg"
-          readOnly
-        />
-        <input
-          type="text"
-          placeholder={currentUser.firstName}
-          id="firstName"
-          className="bg-slate-100 p-3 rounded-lg"
-          readOnly
-        />
-        <input
-          type="text"
-          placeholder={currentUser.lastName}
-          id="lastName"
-          className="bg-slate-100 p-3 rounded-lg"
-          readOnly
-        />
-        <input
-          defaultValue={currentUser.userName}
-          type="text"
-          id="userName"
-          placeholder="Nom d'utilisateur"
-          className="bg-slate-100 rounded-lg p-3"
-          onChange={handleChange}
-        />
-        <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
-          {loading ? 'Loading...' : 'Update'}
-        </button>
-      </form>
+    <div className="flex-1 bg-dark min-h-screen">
+      <div className="p-10">
+        <div className="box-border border bg-white w-300px  mx-auto p-8 ">
+          <img
+            className="w-6 h-6 m-auto"
+            src={userprofile}
+            alt="profile utilisateur"
+          />
+          <h1 className="my-4">Update user name</h1>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="email">
+                Email
+              </label>
+              <input
+                readOnly
+                type="email"
+                placeholder={currentUser.email}
+                id="email"
+                className="border-black border p-5px"
+              />
+            </div>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="password">
+                Password
+              </label>
+              <input
+                type="text"
+                placeholder={currentUser.password}
+                id="password"
+                className="border-black border p-5px"
+                readOnly
+              />
+            </div>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="firstname">
+                First Name
+              </label>
+              <input
+                type="text"
+                placeholder={currentUser.firstName}
+                id="firstname"
+                className="border-black border p-5px"
+                readOnly
+              />
+            </div>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="lastname">
+                Last Name
+              </label>
+              <input
+                type="text"
+                placeholder={currentUser.lastName}
+                id="lastname"
+                className="border-black border p-5px"
+                readOnly
+              />
+            </div>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="username">
+                User Name
+              </label>
+              <input
+                type="text"
+                placeholder={currentUser.userName}
+                id="username"
+                className="border-black border p-5px"
+                onChange={handleChange}
+              />
+            </div>
+            <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
+              {loading ? 'Loading...' : 'Update'}
+            </button>
+          </form>
+        </div>
+      </div>
       <p className="text-red-700 mt-5">
         {error && 'Une erreur est survenue !'}
       </p>
