@@ -19,6 +19,7 @@ export default {
     },
     width: {
       '100px': '100px',
+      '220px': '220px',
       '300px': '300px',
       '364px': '364px',
     },
@@ -31,6 +32,7 @@ export default {
     borderColor: {
       green: {
         feature: '#00bc77',
+        submit: '#00bc77',
       },
       grey: {
         ccc: '#ccc',
@@ -43,6 +45,9 @@ export default {
     },
     padding: {
       '5px': '5px',
+      left: {
+        '500px': '500px',
+      },
     },
     flex: {
       zero: '0',
