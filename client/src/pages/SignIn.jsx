@@ -34,7 +34,7 @@ const SignIn = () => {
         return
       }
       dispatch(signInSuccess(data))
-      navigate('/')
+      navigate('/User')
     } catch (error) {
       dispatch(signInFailure(error))
     }
@@ -49,7 +49,7 @@ const SignIn = () => {
             alt="profile utilisateur"
           />
           <h1 className="my-4">Sign In</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="flex flex-col text-left mb-4">
               <label className="font-bold" htmlFor="username">
                 Username
@@ -58,6 +58,7 @@ const SignIn = () => {
                 className="border-black border p-5px"
                 type="text"
                 id="username"
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col text-left mb-4">
@@ -68,6 +69,7 @@ const SignIn = () => {
                 className="border-black border p-5px"
                 type="password"
                 id="password"
+                onChange={handleChange}
               />
             </div>
             <div className="flex">

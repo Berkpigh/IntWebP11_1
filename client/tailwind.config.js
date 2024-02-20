@@ -5,6 +5,11 @@ export default {
     fontFamily: {
       sans: ['Avenir', 'Helvetica', 'Arial', 'sans-serif'],
     },
+    fontSize: {
+      '2em': '2em',
+      '2.5rem': '2.5rem',
+      '1.1rem': '1.1rem',
+    },
     colors: {
       grey: {
         DEFAULT: '#2c3e50',
@@ -34,9 +39,14 @@ export default {
     backgroundColor: {
       dark: '#12002b',
       submit: '#00bc77',
+      fff: '#fff',
     },
     padding: {
       '5px': '5px',
+    },
+    flex: {
+      zero: '0',
+      un: '1',
     },
     extend: {
       backgroundImage: {
