@@ -54,13 +54,21 @@ const SignIn = () => {
               <label className="font-bold" htmlFor="username">
                 Username
               </label>
-              <input className="p-5px" type="text" id="username" />
+              <input
+                className="border-black border p-5px"
+                type="text"
+                id="username"
+              />
             </div>
             <div className="flex flex-col text-left mb-4">
               <label className="font-bold" htmlFor="password">
                 Password
               </label>
-              <input className="p-5px" type="password" id="password" />
+              <input
+                className="border-black border p-5px"
+                type="password"
+                id="password"
+              />
             </div>
             <div className="flex">
               <input className="" type="checkbox" id="remember-me" />
@@ -68,16 +76,9 @@ const SignIn = () => {
                 Remember me
               </label>
             </div>
-            {/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}
-            {/*             <input
-              className="my-4 w-full p-2 text-lg font-bold bg-submit"
-              type="text"
-              id="signinbutton"
-            >
+            <button className="text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit">
               Sign In
-            </input> */}
-            {/* <!-- SHOULD BE THE BUTTON BELOW --> */}
-            {/* <!-- <button className="sign-in-button">Sign In</button> --> */}
+            </button>
           </form>
         </div>
       </div>

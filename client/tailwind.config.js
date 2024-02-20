@@ -9,6 +9,7 @@ export default {
       grey: {
         DEFAULT: '#2c3e50',
         222: '#222',
+        fff: '#fff',
       },
     },
     width: {
