@@ -32,6 +32,10 @@ export default {
     },
     backgroundColor: {
       dark: '#12002b',
+      submit: '#00bc77',
+    },
+    padding: {
+      '5px': '5px',
     },
     extend: {
       backgroundImage: {

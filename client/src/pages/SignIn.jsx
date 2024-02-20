@@ -40,31 +40,47 @@ const SignIn = () => {
     }
   }
   return (
-    <div className="flex-1 bg-dark">
-      <section className="box-border bg-white w-300px m-auto my-12 p-8">
-        <img className="w-6 h-6 " src={userprofile} alt="profile utilisateur" />
-        <h1>Sign In</h1>
-        <form>
-          <div className="input-wrapper">
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" />
-          </div>
-          <div className="input-remember">
-            <input type="checkbox" id="remember-me" />
-            <label htmlFor="remember-me">Remember me</label>
-          </div>
-          {/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}
-          <a href="./user.html" className="sign-in-button">
-            Sign In
-          </a>
-          {/* <!-- SHOULD BE THE BUTTON BELOW --> */}
-          {/* <!-- <button className="sign-in-button">Sign In</button> --> */}
-        </form>
-      </section>
+    <div className="flex-1 bg-dark min-h-screen">
+      <div className="p-10">
+        <div className="box-border border bg-white w-300px  mx-auto p-8 ">
+          <img
+            className="w-6 h-6 m-auto"
+            src={userprofile}
+            alt="profile utilisateur"
+          />
+          <h1 className="my-4">Sign In</h1>
+          <form>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="username">
+                Username
+              </label>
+              <input className="p-5px" type="text" id="username" />
+            </div>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="password">
+                Password
+              </label>
+              <input className="p-5px" type="password" id="password" />
+            </div>
+            <div className="flex">
+              <input className="" type="checkbox" id="remember-me" />
+              <label className="mx-1" htmlFor="remember-me">
+                Remember me
+              </label>
+            </div>
+            {/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}
+            {/*             <input
+              className="my-4 w-full p-2 text-lg font-bold bg-submit"
+              type="text"
+              id="signinbutton"
+            >
+              Sign In
+            </input> */}
+            {/* <!-- SHOULD BE THE BUTTON BELOW --> */}
+            {/* <!-- <button className="sign-in-button">Sign In</button> --> */}
+          </form>
+        </div>
+      </div>
     </div>
   )
 }
