@@ -19,6 +19,7 @@ const SignIn = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log(JSON.stringify(formData))
     try {
       dispatch(signInStart())
       const res = await fetch('http://localhost:3001/api/v1/user/login', {
@@ -51,13 +52,14 @@ const SignIn = () => {
           <h1 className="my-4">Sign In</h1>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col text-left mb-4">
-              <label className="font-bold" htmlFor="username">
-                Username
+              <label className="font-bold" htmlFor="email">
+                Email
               </label>
               <input
                 className="border-black border p-5px"
-                type="text"
-                id="username"
+                type="email"
+                id="email"
+                placeholder="Email"
                 onChange={handleChange}
               />
             </div>
@@ -69,6 +71,7 @@ const SignIn = () => {
                 className="border-black border p-5px"
                 type="password"
                 id="password"
+                placeholder="Email"
                 onChange={handleChange}
               />
             </div>
