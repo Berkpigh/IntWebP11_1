@@ -1,12 +1,12 @@
-export default async function FetchGetProfile(url, data) {
+export default async function FetchGetProfile(url, token) {
   const fullUrl = '/api/v1/user/' + url
-  console.log(url, data)
+  console.log(url, token)
   try {
     const res = await fetch(fullUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${data}`,
+        Authorization: `Bearer ${token}`,
       },
     })
     const resdata = await res.json()

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import SignOut from './pages/SignOut'
 import User from './pages/User'
 import Profile from './pages/Profile'
 import Header from './components/Header'
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/signout" element={<SignOut />} />
         <Route path="/user" element={<User />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>

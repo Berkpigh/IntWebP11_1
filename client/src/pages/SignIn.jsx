@@ -10,6 +10,7 @@ import {
 import userprofile from '../assets/img/userprofile.png'
 import FetchLogin from '../api/FetchLogin'
 import FetchGetProfile from '../api/FetchGetProfile'
+import User from './User'
 
 const SignIn = () => {
   const dispatch = useDispatch()
@@ -40,7 +41,7 @@ const SignIn = () => {
     console.log('result', result)
     if (result.status === 200) {
       dispatch(signInSuccess(result))
-      //      console.log(result.body.token)
+      navigate('/user')
     } else {
       dispatch(signInFailure(result))
     }

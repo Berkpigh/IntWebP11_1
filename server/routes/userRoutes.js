@@ -19,4 +19,6 @@ router.put(
   userController.updateUserProfile
 )
 
+router.get('/signout', userController.signOut)
+
 module.exports = router

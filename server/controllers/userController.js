@@ -67,3 +67,7 @@ module.exports.updateUserProfile = async (req, res) => {
 
   return res.status(response.status).send(response)
 }
+
+module.exports.signOut = (req, res) => {
+  res.clearCookie('access_token').status(200).json('Signout success !')
+}
