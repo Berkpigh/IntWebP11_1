@@ -1,43 +1,35 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   signInStart,
   signInSuccess,
   signInFailure,
 } from '../redux/user/userSlice'
-import { useDispatch, useSelector } from 'react-redux'
+
 import userprofile from '../assets/img/userprofile.png'
+import FetchLogin from '../api/apis'
 
 const SignIn = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [formData, setFormData] = useState({})
   const { loading, error } = useSelector((state) => state.user)
-  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value })
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(JSON.stringify(formData))
-    try {
-      dispatch(signInStart())
-      const res = await fetch('http://localhost:3001/api/v1/user/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-      const data = await res.json()
-      if (data.success === false) {
-        dispatch(signInFailure(data))
-        return
-      }
-      dispatch(signInSuccess(data))
-      navigate('/User')
-    } catch (error) {
-      dispatch(signInFailure(error))
+    const data = JSON.stringify(formData)
+    console.log(data)
+    dispatch(signInStart())
+    const result = await FetchLogin('login', data)
+    console.log('result', result)
+    if (result.status === 200) {
+      dispatch(signInSuccess(result))
+    } else {
+      dispatch(signInFailure(result))
     }
   }
   return (
