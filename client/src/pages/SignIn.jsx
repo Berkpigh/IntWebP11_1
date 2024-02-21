@@ -8,7 +8,8 @@ import {
 } from '../redux/user/userSlice'
 
 import userprofile from '../assets/img/userprofile.png'
-import FetchLogin from '../api/apis'
+import FetchLogin from '../api/FetchLogin'
+import FetchGetProfile from '../api/FetchGetProfile'
 
 const SignIn = () => {
   const dispatch = useDispatch()
@@ -28,6 +29,18 @@ const SignIn = () => {
     console.log('result', result)
     if (result.status === 200) {
       dispatch(signInSuccess(result))
+      console.log(result.body.token)
+      handleGetProfile(result.body.token)
+    } else {
+      dispatch(signInFailure(result))
+    }
+  }
+  const handleGetProfile = async (token) => {
+    const result = await FetchGetProfile('profile', token)
+    console.log('result', result)
+    if (result.status === 200) {
+      dispatch(signInSuccess(result))
+      //      console.log(result.body.token)
     } else {
       dispatch(signInFailure(result))
     }
