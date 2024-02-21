@@ -40,7 +40,7 @@ const SignIn = () => {
     }
   }
   return (
-    <div className="flex-1 bg-dark min-h-screen">
+    <div className="min-h-80vh flex-1 bg-dark min-h-screen">
       <div className="p-10">
         <div className="box-border border bg-white w-300px  mx-auto p-8 ">
           <img

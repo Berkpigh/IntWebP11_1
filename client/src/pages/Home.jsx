@@ -6,8 +6,8 @@ import iconsecurity from '../assets/img/icon-security.png'
 const Home = () => {
   return (
     <React.Fragment>
-      <div>
-        <div className="bg-[0_33%] bg-hero object-cover bg-cover bg-no-repeat h-[400px] relative">
+      <div className="">
+        <div className="min-h-55vh max-h-80vh bg-[0_33%] bg-hero object-cover bg-cover bg-no-repeat relative">
           <div className="absolute inset-y-8 right-5 h-211px w-364px bg-white p-8 text-left m-8">
             {/* <h2 className="sr-only">Promoted Content</h2> */}
             <p className="font-bold text-xl m-0">No fees.</p>

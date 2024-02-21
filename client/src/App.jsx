@@ -24,7 +24,8 @@ export default function App() {
     </BrowserRouter>
   )
 }
-{
-  /* <Route element={<PrivateRoute />}>
-</Route> */
+/* {
+<Route element={<PrivateRoute />}>
+</Route>
 }
+*/

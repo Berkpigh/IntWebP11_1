@@ -41,7 +41,7 @@ const Profile = () => {
     }
   }
   return (
-    <div className="flex-1 bg-dark min-h-screen">
+    <div className="min-h-80vh flex-1 bg-dark min-h-screen">
       <div className="p-10">
         <div className="box-border border bg-white w-300px  mx-auto p-8 ">
           <img
@@ -57,11 +57,11 @@ const Profile = () => {
                 Email
               </label>
               <input
-                readOnly
                 type="email"
                 placeholder={currentUser.email}
                 id="email"
                 className="border-black border p-5px"
+                readOnly
               />
             </div>
             <div className="flex flex-col text-left mb-4">
@@ -112,7 +112,7 @@ const Profile = () => {
                 onChange={handleChange}
               />
             </div>
-            <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
+            <button className="text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit">
               {loading ? 'Loading...' : 'Update'}
             </button>
           </form>

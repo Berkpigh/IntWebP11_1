@@ -5,7 +5,7 @@ import userprofile from '../assets/img/userprofile.png'
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user)
   return (
-    <nav className="flex justify-between items-center mx-auto pt-1.5 pb-5">
+    <nav className="min-h-6vh max-h-10vh flex justify-between items-center mx-auto pt-1.5 pb-5">
       <a href="/">
         <img
           className="max-w-full w-48"

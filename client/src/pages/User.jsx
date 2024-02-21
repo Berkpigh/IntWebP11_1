@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const User = () => {
   return (
-    <div className="flex-1 bg-dark min-h-screen">
+    <div className="min-h-80vh flex-1 bg-dark min-h-screen">
       <div className="text-grey-fff mb-8">
         <h1 className="block text-2em font-bold p-4">
           Welcome back

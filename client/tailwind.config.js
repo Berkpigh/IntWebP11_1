@@ -53,6 +53,16 @@ export default {
       zero: '0',
       un: '1',
     },
+    minHeight: {
+      '6vh': '6vh',
+      '10vh': '10vh',
+      '55vh': '55vh',
+      '80vh': '80vh',
+    },
+    maxHeight: {
+      '10vh': '10vh',
+      '80vh': '80vh',
+    },
     extend: {
       backgroundImage: {
         hero: "url('./src/assets/img/bank-tree.jpeg')",

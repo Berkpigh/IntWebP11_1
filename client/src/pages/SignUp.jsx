@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import userprofile from '../assets/img/userprofile.png'
 
 const SignUp = () => {
   const [formData, setFormData] = useState({})
@@ -38,54 +39,79 @@ const SignUp = () => {
     }
   }
   return (
-    <div className="p-3 max-w-lg mx-auto  pb-48">
-      <h1 className="text-3xl text-center font-semibold my-7">
-        Créer un compte
-      </h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          type="email"
-          placeholder="Adresse mail"
-          id="email"
-          className="bg-slate-100 p-3 rounded-lg"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          id="password"
-          className="bg-slate-100 p-3 rounded-lg"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          placeholder="Prénom"
-          id="firstName"
-          className="bg-slate-100 p-3 rounded-lg"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          placeholder="Nom"
-          id="lastName"
-          className="bg-slate-100 p-3 rounded-lg"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          placeholder="Nom d'utilisateur"
-          id="userName"
-          className="bg-slate-100 p-3 rounded-lg"
-          onChange={handleChange}
-        />
-        <button
-          disabled={loading}
-          className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
-        >
-          {loading ? 'Traitement en cours...' : "S'enregister"}
-        </button>
-        {/*<OAuth /> */}
-      </form>
+    <div className="min-h-80vh flex-1 bg-dark min-h-screen">
+      <div className="p-10">
+        <div className="box-border border bg-white w-300px  mx-auto p-8 ">
+          <img
+            className="w-6 h-6 m-auto"
+            src={userprofile}
+            alt="profile utilisateur"
+          />
+          <h1 className="my-4">Sign Up</h1>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="email">
+                Email
+              </label>
+              <input
+                type="email"
+                placeholder="Email"
+                id="email"
+                className="border-black border p-5px"
+              />
+            </div>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="password">
+                Password
+              </label>
+              <input
+                type="text"
+                placeholder="Password"
+                id="password"
+                className="border-black border p-5px"
+              />
+            </div>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="firstname">
+                First Name
+              </label>
+              <input
+                type="text"
+                placeholder="First Name"
+                id="firstname"
+                className="border-black border p-5px"
+              />
+            </div>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="lastname">
+                Last Name
+              </label>
+              <input
+                type="text"
+                placeholder="Last Name"
+                id="lastname"
+                className="border-black border p-5px"
+              />
+            </div>
+            <div className="flex flex-col text-left mb-4">
+              <label className="font-bold" htmlFor="username">
+                User Name
+              </label>
+              <input
+                type="text"
+                placeholder="User Name"
+                id="username"
+                className="border-black border p-5px"
+                onChange={handleChange}
+              />
+            </div>
+            <button className="text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit">
+              {loading ? 'Loading...' : 'Sign Up'}
+            </button>
+          </form>
+        </div>
+      </div>
       <div className="flex gap-2 mt-5">
         <p>Vous avez déjà un compte ?</p>
         <Link to="/sign-in">
