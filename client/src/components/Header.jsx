@@ -1,7 +1,9 @@
 import { useSelector } from 'react-redux'
 import bankLogo from '../assets/img/argentBankLogo.png'
+import bankLogo2 from '../assets/img/argentBankLogo2.png'
 import userprofile from '../assets/img/userprofile.png'
-import signoutlogo from '../assets/img/logout_icon.png'
+import profileParams from '../assets/img/profileParams.png'
+import deconnexion from '../assets/img/déconnexion.png'
 
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user)
@@ -10,38 +12,39 @@ const Header = () => {
     <reactFragment>
       <nav className="min-h-6vh max-h-10vh flex justify-between items-center mx-auto pt-1.5 pb-5">
         <a href="/">
-          <img
-            className="max-w-full w-48"
-            src={bankLogo}
-            alt="logo argentBankDB"
-          />
-        </a>
-        <div className="flex items-center">
           {currentUser ? (
             <img
-              className="w-6 h-6 inline"
-              src={userprofile}
-              alt="profil utilisateur"
+              className="max-w-full w-48"
+              src={bankLogo2}
+              alt="logo2 argentBankDB"
             />
           ) : (
             <img
-              className="w-6 h-6 hidden"
-              src={userprofile}
-              alt="profil utilisateur"
+              className="max-w-full w-48"
+              src={bankLogo}
+              alt="logo argentBankDB"
             />
           )}
+        </a>
+        <div className="flex items-center">
           {currentUser ? (
             <div className="flex items-center">
-              <span className="mx-4 hover:underline">
-                {currentUser.body.userName}
-              </span>
-              <a className="flex items-center mx-4" href="/signout">
+              <a className="flex items-center mx-4" href="/profile">
+                <span className="mx-4 text-lg text-bold text-green-500 hover:underline">
+                  {currentUser.body.userName}
+                </span>
                 <img
-                  className="w-6 h-6 "
-                  src={signoutlogo}
+                  className="w-16 h-8 "
+                  src={profileParams}
                   alt="logo sign out"
                 />
-                <div className="mx-4">Sign Out</div>
+              </a>
+              <a className="flex items-center mx-4" href="/signout">
+                <img
+                  className="w-8 h-8 inline"
+                  src={deconnexion}
+                  alt="profil utilisateur"
+                />
               </a>
             </div>
           ) : (
