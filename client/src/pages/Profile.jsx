@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Transactions from './Transactions'
 
 import {
   updateUserStart,
   updateUserSuccess,
   updateUserFailure,
 } from '../redux/user/userSlice'
-import userprofile from '../assets/img/userprofile.png'
 
 const Profile = () => {
   const dispatch = useDispatch()
@@ -41,89 +41,69 @@ const Profile = () => {
     }
   }
   return (
-    <div className="min-h-80vh flex-1 bg-dark min-h-screen">
-      <div className="p-10">
-        <div className="box-border border bg-white w-300px  mx-auto p-8 ">
-          <img
-            className="w-6 h-6 m-auto"
-            src={userprofile}
-            alt="profile utilisateur"
-          />
-          <h1 className="my-4">Update user name</h1>
+    <div className="min-h-80vh flex-1 min-h-screen">
+      <div className="">
+        <div className="w-80  mx-auto p-2">
+          <h1 className="my-4 text-2xl">Edit user info</h1>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div className="flex flex-col text-left mb-4">
-              <label className="font-bold" htmlFor="email">
-                Email
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+            <div className="flex items-center text-left">
+              <label className="font-bold mr-2" htmlFor="userName">
+                User name:
               </label>
               <input
-                type="email"
-                placeholder={currentUser.email}
-                id="email"
-                className="border-black border p-5px"
-                readOnly
-              />
-            </div>
-            <div className="flex flex-col text-left mb-4">
-              <label className="font-bold" htmlFor="password">
-                Password
-              </label>
-              <input
+                className=" rounded border-black border p-5px"
                 type="text"
-                placeholder={currentUser.password}
-                id="password"
-                className="border-black border p-5px"
-                readOnly
-              />
-            </div>
-            <div className="flex flex-col text-left mb-4">
-              <label className="font-bold" htmlFor="firstname">
-                First Name
-              </label>
-              <input
-                type="text"
-                placeholder={currentUser.firstName}
-                id="firstname"
-                className="border-black border p-5px"
-                readOnly
-              />
-            </div>
-            <div className="flex flex-col text-left mb-4">
-              <label className="font-bold" htmlFor="lastname">
-                Last Name
-              </label>
-              <input
-                type="text"
-                placeholder={currentUser.lastName}
-                id="lastname"
-                className="border-black border p-5px"
-                readOnly
-              />
-            </div>
-            <div className="flex flex-col text-left mb-4">
-              <label className="font-bold" htmlFor="username">
-                User Name
-              </label>
-              <input
-                type="text"
-                placeholder={currentUser.userName}
-                id="username"
-                className="border-black border p-5px"
+                value={currentUser.body.userName}
+                id="userName"
                 onChange={handleChange}
               />
             </div>
-            <button className="text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit">
-              {loading ? 'Loading...' : 'Update'}
-            </button>
+            <div className="flex items-center text-left">
+              <label className="font-bold mr-2" htmlFor="firstName">
+                First name:
+              </label>
+              <input
+                className="rounded border-black border p-5px bg-gray-200"
+                type="text"
+                placeholder={currentUser.body.firstName}
+                id="firstName"
+                readOnly
+              />
+            </div>
+            <div className="flex items-center text-left">
+              <label className="font-bold mr-2" htmlFor="lastName">
+                Last name:
+              </label>
+              <input
+                className="rounded border-black border p-5px  bg-gray-200"
+                type="text"
+                placeholder={currentUser.body.lastName}
+                id="lastName"
+                readOnly
+              />
+            </div>
           </form>
+          <div className="flex justify-between w-80">
+            <button
+              type="submit"
+              className="rounded text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit mr-1"
+            >
+              {loading ? 'Loading...' : 'Save'}
+            </button>
+            <a
+              href="/user"
+              className="ml-1 rounded text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit"
+            >
+              Cancel
+            </a>
+          </div>
         </div>
+        <p className="text-red-700 mt-5">
+          {error && 'Une erreur est survenue !'}
+        </p>
       </div>
-      <p className="text-red-700 mt-5">
-        {error && 'Une erreur est survenue !'}
-      </p>
-      <p className="text-green-700 mt-5">
-        {updateSuccess && 'Le profil a été mis à jour !'}
-      </p>
+      <Transactions view={'2'} />
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSelector } from 'react-redux'
 import bankLogo from '../assets/img/argentBankLogo.png'
 import bankLogo2 from '../assets/img/argentBankLogo2.png'
@@ -9,8 +10,8 @@ const Header = () => {
   const { currentUser } = useSelector((state) => state.user)
 
   return (
-    <reactFragment>
-      <nav className="min-h-6vh max-h-10vh flex justify-between items-center mx-auto pt-1.5 pb-5">
+    <React.Fragment>
+      <nav className="ml-2 min-h-6vh max-h-10vh flex justify-between items-center mx-auto pt-1.5 pb-5">
         <a href="/">
           {currentUser ? (
             <img
@@ -59,7 +60,7 @@ const Header = () => {
           )}
         </div>
       </nav>
-    </reactFragment>
+    </React.Fragment>
   )
 }
 
