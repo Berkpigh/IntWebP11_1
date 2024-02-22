@@ -1,7 +1,9 @@
 import { useDispatch } from 'react-redux'
 import { signOut } from '../redux/user/userSlice'
+import { useNavigate } from 'react-router-dom'
 
 const SignOut = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const handleSignOut = async () => {
     try {
@@ -10,6 +12,7 @@ const SignOut = () => {
     } catch (error) {
       console.log(error)
     }
+    navigate('/')
   }
   return (
     <div className="min-h-80vh flex flex-col bg-dark min-h-screen">

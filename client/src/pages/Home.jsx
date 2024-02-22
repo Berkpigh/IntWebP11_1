@@ -1,9 +1,18 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import iconchat from '../assets/img/icon-chat.png'
 import iconmoney from '../assets/img/icon-money.png'
 import iconsecurity from '../assets/img/icon-security.png'
 
 const Home = () => {
+  const navigate = useNavigate()
+  const { currentUser } = useSelector((state) => state.user)
+
+  useEffect(() => {
+    currentUser ? navigate('/user') : ''
+  })
   return (
     <React.Fragment>
       <div className="">
