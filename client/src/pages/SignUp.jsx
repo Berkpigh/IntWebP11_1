@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+
 import userprofile from '../assets/img/userprofile.png'
+import FetchSignUp from '../api/FetchSignUp'
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({})
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value })
@@ -14,27 +16,17 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(JSON.stringify(formData))
-    try {
-      setLoading(true)
-      setError(false)
-      const res = await fetch('http://localhost:3001/api/v1/user/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-      const data = await res.json()
-      console.log(data)
-      setLoading(false)
-      if (data.success === false) {
-        setError(true)
-        return
-      }
-      navigate('/sign-in')
-    } catch (error) {
-      setLoading(false)
+    const data = JSON.stringify(formData)
+    console.log(data)
+    setLoading(true)
+    setError(false)
+    const result = await FetchSignUp('signup', data)
+    console.log('result', result)
+    setLoading(false)
+    if (result.status === 200) {
+      console.log(result.body.token)
+      navigate('/login')
+    } else {
       setError(true)
     }
   }
@@ -55,10 +47,12 @@ const SignUp = () => {
                 Email
               </label>
               <input
-                type="email"
-                placeholder="Email"
-                id="email"
                 className="border-black border p-5px"
+                type="email"
+                id="email"
+                placeholder="Email"
+                required
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col text-left mb-4">
@@ -66,10 +60,12 @@ const SignUp = () => {
                 Password
               </label>
               <input
-                type="text"
-                placeholder="Password"
-                id="password"
                 className="border-black border p-5px"
+                type="text"
+                id="password"
+                placeholder="Password"
+                required
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col text-left mb-4">
@@ -77,10 +73,12 @@ const SignUp = () => {
                 First Name
               </label>
               <input
-                type="text"
-                placeholder="First Name"
-                id="firstname"
                 className="border-black border p-5px"
+                type="text"
+                id="firstName"
+                placeholder="First Name"
+                required
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col text-left mb-4">
@@ -88,10 +86,12 @@ const SignUp = () => {
                 Last Name
               </label>
               <input
-                type="text"
-                placeholder="Last Name"
-                id="lastname"
                 className="border-black border p-5px"
+                type="text"
+                id="lastName"
+                placeholder="Last Name"
+                required
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col text-left mb-4">
@@ -99,10 +99,11 @@ const SignUp = () => {
                 User Name
               </label>
               <input
-                type="text"
-                placeholder="User Name"
-                id="username"
                 className="border-black border p-5px"
+                type="text"
+                id="userName"
+                placeholder="User Name"
+                required
                 onChange={handleChange}
               />
             </div>
@@ -112,10 +113,12 @@ const SignUp = () => {
           </form>
         </div>
       </div>
-      <div className="flex gap-2 mt-5">
-        <p>Vous avez déjà un compte ?</p>
-        <Link to="/sign-in">
-          <span className="text-blue-500">Connecter-vous</span>
+      <div className="flex justify-center m-auto mt-3">
+        <p className="text-white">Have an account ?</p>
+        <Link to="/login">
+          <span className="p-2 border text-lg font-bold bg-submit ml-2 text-white">
+            Login
+          </span>
         </Link>
       </div>
       <p className="text-red-700 mt-5">

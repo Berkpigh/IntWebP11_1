@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+  signInInitial,
   signInStart,
   signInSuccess,
   signInFailure,
@@ -10,7 +11,6 @@ import {
 import userprofile from '../assets/img/userprofile.png'
 import FetchLogin from '../api/FetchLogin'
 import FetchGetProfile from '../api/FetchGetProfile'
-import User from './User'
 
 const SignIn = () => {
   const dispatch = useDispatch()
@@ -18,13 +18,17 @@ const SignIn = () => {
   const [formData, setFormData] = useState({})
   const { loading, error } = useSelector((state) => state.user)
 
+  useEffect(() => {
+    dispatch(signInInitial())
+  })
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value })
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
     const data = JSON.stringify(formData)
-    console.log(data)
+    //console.log(data)
     dispatch(signInStart())
     const result = await FetchLogin('login', data)
     console.log('result', result)
@@ -66,6 +70,7 @@ const SignIn = () => {
                 type="email"
                 id="email"
                 placeholder="Email"
+                required
                 onChange={handleChange}
               />
             </div>
@@ -78,6 +83,7 @@ const SignIn = () => {
                 type="password"
                 id="password"
                 placeholder="Email"
+                required
                 onChange={handleChange}
               />
             </div>
@@ -88,51 +94,23 @@ const SignIn = () => {
               </label>
             </div>
             <button className="text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit">
-              Sign In
+              {loading ? 'Loading' : 'Sign In'}
             </button>
           </form>
         </div>
       </div>
+      <div className="flex justify-center m-auto mt-3">
+        <p className="text-white">Dont have an account ?</p>
+        <Link to="/signup">
+          <span className="p-2 border text-lg font-bold bg-submit ml-2 text-white">
+            Sign Up
+          </span>
+        </Link>
+      </div>
+      <p className="text-red-700 mt-5">
+        {error ? error.message || 'Something went wrong' : ''}
+      </p>
     </div>
   )
 }
-
 export default SignIn
-/* 
-return (
-  <div className="p-3 max-w-lg mx-auto  pb-48">
-    <h1 className="text-3xl text-center font-semibold my-7">Connexion</h1>
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <input
-        type="email"
-        placeholder="Adresse mail"
-        id="email"
-        className="bg-slate-100 p-3 rounded-lg"
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        placeholder="Mot de passe"
-        id="password"
-        className="bg-slate-100 p-3 rounded-lg"
-        onChange={handleChange}
-      />
-      <button
-        disabled={loading}
-        className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
-      >
-        {loading ? 'Loading...' : 'Se connecter'}
-      </button>
-    </form>
-    <div className="flex gap-2 mt-5">
-      <p>Vous n&apos;avez pas encore de compte ?</p>
-      <Link to="/sign-up">
-        <span className="text-blue-500">Créer un compte</span>
-      </Link>
-    </div>
-    <p className="text-red-700 mt-5">
-      {error ? error.message || 'Une erreur est survenue !' : ''}
-    </p>
-  </div>
-)
- */
