@@ -10,9 +10,11 @@ import {
 import Cookies from 'js-cookie'
 
 import FetchUpdateProfile from '../api/FetchUpdateProfile'
+import { useNavigate } from 'react-router-dom'
 
 const Profile = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [formData, setFormData] = useState()
   //const [updateSuccess, setUpdateSuccess] = useState(false)
   const { currentUser, loading, error } = useSelector((state) => state.user)
@@ -30,8 +32,7 @@ const Profile = () => {
     console.log('result', result)
     if (result.status === 200) {
       dispatch(updateUserSuccess(result))
-      console.log(result.body.token)
-      //setUpdateSuccess(true)
+      navigate('/user')
     } else {
       dispatch(updateUserFailure(result))
     }
