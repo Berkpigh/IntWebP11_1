@@ -1,19 +1,14 @@
 import React from 'react'
-//import { useEffect } from 'react'
-//import { useSelector } from 'react-redux'
-//import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import iconchat from '../assets/img/icon-chat.png'
 import iconmoney from '../assets/img/icon-money.png'
 import iconsecurity from '../assets/img/icon-security.png'
 
+import { profileDefaultPage } from '../redux/user/profileSlice'
+
 const Home = () => {
-  //const navigate = useNavigate()
-  //const { currentUser } = useSelector((state) => state.user)
-  //const { currentProfile } = useSelector((state) => state.profile)
-  //console.log.log(currentUser.status)
-  /*   useEffect(() => {
-    currentUser ? navigate('/user') : ''
-  }) */
+  const dispatch = useDispatch()
+  dispatch(profileDefaultPage('user'))
   return (
     <React.Fragment>
       <div className="">

@@ -1,10 +1,11 @@
-function Accounts({ aspect }) {
-  const asp = aspect
-  console.log(asp)
+import { useSelector } from 'react-redux'
+
+const Accounts = () => {
+  const { defaultUserPage } = useSelector((state) => state.profile)
   return (
     <div>
       {/* SECTION 1 */}
-      {asp === 1 ? (
+      {defaultUserPage ? (
         <section
           className="bg-fff w-4/5 m-auto p-6 box-border text-left mb-8
                     grid grid-cols-2"
@@ -50,7 +51,7 @@ function Accounts({ aspect }) {
         </section>
       )}
       {/* SECTION 2 */}
-      {asp === 1 ? (
+      {defaultUserPage ? (
         <section
           className="bg-fff w-4/5 m-auto p-6 box-border text-left mb-8
         grid grid-cols-2"
@@ -96,7 +97,7 @@ function Accounts({ aspect }) {
         </section>
       )}
       {/* SECTION 3 */}
-      {asp === 1 ? (
+      {defaultUserPage ? (
         <section
           className="bg-fff w-4/5 m-auto p-6 box-border text-left mb-8
         grid grid-cols-2"

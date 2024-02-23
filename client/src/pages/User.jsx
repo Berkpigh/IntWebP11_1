@@ -1,26 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  profileChange,
+  profileDefaultPage,
+  profileUpdatePage,
+} from '../redux/user/profileSlice'
+import {
   updateUserStart,
   updateUserSuccess,
   updateUserFailure,
-} from '../redux/user/profileSlice'
-import { Link } from 'react-router-dom'
+} from '../redux/user/userSlice'
 import Accounts from '../components/Accounts'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import FetchUpdateProfile from '../api/FetchUpdateProfile'
 import Cookies from 'js-cookie'
 
 const User = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   const [formData, setFormData] = useState()
   const { currentUser, loading, error } = useSelector((state) => state.user)
-  const { currentProfile } = useSelector((state) => state.profile)
-  const [uorpProfile, setUorpProfile] = useState(true)
-  dispatch(profileChange('user'))
+  const { defaultUserPage } = useSelector((state) => state.profile)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value })
@@ -34,18 +32,21 @@ const User = () => {
     console.log('result', result)
     if (result.status === 200) {
       dispatch(updateUserSuccess(result))
-      navigate('/user')
+      dispatch(profileDefaultPage('user'))
     } else {
       dispatch(updateUserFailure(result))
     }
   }
   const handleUpdateProfile = () => {
-    setUorpProfile(false)
+    //setUorpProfile(false)
+    dispatch(profileUpdatePage('profile'))
   }
-
+  const handleCancelUpdateProfile = () => {
+    dispatch(profileDefaultPage('user'))
+  }
   return (
     <div>
-      {uorpProfile ? (
+      {defaultUserPage ? (
         <div className="min-h-80vh flex-1 bg-dark min-h-screen">
           <div className="text-grey-fff mb-8">
             <h1 className="block text-2em font-bold p-4">
@@ -61,7 +62,7 @@ const User = () => {
               Edit Name
             </button>
           </div>
-          <Accounts aspect={1} />
+          <Accounts />
         </div>
       ) : (
         <div className="min-h-80vh flex-1 min-h-screen">
@@ -113,12 +114,12 @@ const User = () => {
                   >
                     {loading ? 'Loading...' : 'Save'}
                   </button>
-                  <Link
-                    to="/user"
+                  <button
                     className="ml-1 rounded text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit"
+                    onClick={handleCancelUpdateProfile}
                   >
                     Cancel
-                  </Link>
+                  </button>
                 </div>
               </form>
             </div>
@@ -126,7 +127,7 @@ const User = () => {
               {error && 'Une erreur est survenue !'}
             </p>
           </div>
-          <Accounts aspect={2} />
+          <Accounts />
         </div>
       )}
     </div>
