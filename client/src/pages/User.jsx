@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Transactions from './Transactions'
+import Accounts from '../components/Accounts'
 
 const User = () => {
   const { currentUser } = useSelector((state) => state.user)
@@ -21,7 +21,7 @@ const User = () => {
           </button>
         </Link>
       </div>
-      <Transactions view={1} />
+      <Accounts aspect={1} />
     </div>
   )
 }

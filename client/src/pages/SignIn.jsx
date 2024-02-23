@@ -7,6 +7,7 @@ import {
   signInSuccess,
   signInFailure,
 } from '../redux/user/userSlice'
+import Cookies from 'js-cookie'
 
 import userprofile from '../assets/img/userprofile.png'
 import FetchLogin from '../api/FetchLogin'
@@ -35,6 +36,9 @@ const SignIn = () => {
     if (result.status === 200) {
       dispatch(signInSuccess(result))
       console.log(result.body.token)
+
+      const token = result.body.token
+      Cookies.set('mytoken', token, { expires: 1, secure: false })
       handleGetProfile(result.body.token)
     } else {
       dispatch(signInFailure(result))

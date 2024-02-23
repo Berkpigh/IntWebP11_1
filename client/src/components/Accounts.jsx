@@ -1,6 +1,6 @@
-function Transactions({ view }) {
-  const VV = view
-  console.log(VV)
+function Accounts({ aspect }) {
+  const asp = aspect
+  console.log(asp)
   return (
     <div>
       <section
@@ -14,7 +14,7 @@ function Transactions({ view }) {
           <p className="m-0 text-2.5rem">$2,082.79</p>
           <p className="m-0">Available Balance</p>
         </div>
-        {VV === 1 ? (
+        {asp === 1 ? (
           <div className="pl-96 mx-44 py-5 w-11/12">
             <button
               type="button"
@@ -74,4 +74,4 @@ function Transactions({ view }) {
   )
 }
 
-export default Transactions
+export default Accounts
