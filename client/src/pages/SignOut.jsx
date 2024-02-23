@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { signOut } from '../redux/user/userSlice'
 import { useNavigate } from 'react-router-dom'
@@ -23,12 +24,12 @@ const SignOut = () => {
       >
         Sign Out ?
       </button>
-      <a
+      <Link
+        to="/"
         className="p-10 m-auto text-grey-fff my-4 w-36 p-2 text-lg font-bold bg-submit"
-        href="/"
       >
         Cancel
-      </a>
+      </Link>
     </div>
   )
 }
