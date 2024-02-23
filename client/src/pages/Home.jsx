@@ -10,9 +10,9 @@ const Home = () => {
   const navigate = useNavigate()
   const { currentUser } = useSelector((state) => state.user)
 
-  useEffect(() => {
+  /*   useEffect(() => {
     currentUser ? navigate('/user') : ''
-  })
+  }) */
   return (
     <React.Fragment>
       <div className="">
