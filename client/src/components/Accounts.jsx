@@ -31,7 +31,7 @@ const Accounts = () => {
       ) : (
         <section
           className="bg-black w-4/5 m-auto p-6 box-border text-left mb-8
-                    grid grid-cols-2 text-white"
+                    grid grid-cols-2 items-center text-white"
         >
           <div className="flex-un flex-col w-full">
             <h3 className="m-0 p-0 text-base font-normal">
@@ -71,7 +71,7 @@ const Accounts = () => {
       ) : (
         <section
           className="bg-black w-4/5 m-auto p-6 box-border text-left mb-8
-                grid grid-cols-2 text-white"
+                grid grid-cols-2  items-center text-white"
         >
           <div className="flex-un flex-col w-full">
             <h3 className="m-0 p-0 text-base font-normal">
@@ -111,7 +111,7 @@ const Accounts = () => {
       ) : (
         <section
           className="bg-black w-4/5 m-auto p-6 box-border text-left mb-8
-        grid grid-cols-2 text-white"
+        grid grid-cols-2  items-center text-white"
         >
           <div className="flex-un flex-col w-full">
             <h3 className="m-0 p-0 text-base font-normal">
