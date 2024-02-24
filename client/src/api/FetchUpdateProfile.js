@@ -1,4 +1,4 @@
-export default async function FetchUpdateProfile(url, token, data) {
+const FetchUpdateProfile = async (url, token, data) => {
   const fullUrl = '/api/v1/user/' + url
   console.log(url, token, data)
   try {
@@ -11,9 +11,10 @@ export default async function FetchUpdateProfile(url, token, data) {
       body: data,
     })
     const resdata = await res.json()
-    console.log('resdata', resdata)
+    //console.log('resdata', resdata)
     return resdata
   } catch (error) {
     console.log(error)
   }
 }
+export default FetchUpdateProfile

@@ -1,18 +1,22 @@
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { signOut } from '../redux/user/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { signOut, signOutError } from '../redux/user/userSlice'
 import { useNavigate } from 'react-router-dom'
+import FetchSignOut from '../api/FetchSignOut'
 
 const SignOut = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { error } = useSelector((state) => state.user)
+
   const handleSignOut = async () => {
-    try {
-      await fetch('/api/v1/user/signout')
-      dispatch(signOut())
-    } catch (error) {
-      console.log(error)
+    const result = await FetchSignOut('signout')
+    console.log(result)
+    if (result === 'failure') {
+      dispatch(signOutError())
+      return
     }
+    dispatch(signOut())
     navigate('/')
   }
   return (
@@ -30,6 +34,7 @@ const SignOut = () => {
       >
         Cancel
       </Link>
+      <p className="text-red-700 mt-5">{error ? 'Something went wrong' : ''}</p>
     </div>
   )
 }

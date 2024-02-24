@@ -17,16 +17,16 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const data = JSON.stringify(formData)
-    console.log(data)
+    //console.log(data)
     setLoading(true)
     setError(false)
     const result = await FetchSignUp('signup', data)
     console.log('result', result)
     setLoading(false)
     if (result.status === 200) {
-      console.log(result.body.token)
       navigate('/login')
     } else {
+      console.log(result)
       setError(true)
     }
   }
