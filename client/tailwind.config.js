@@ -2,6 +2,13 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      smpb: '720px',
+      // => @media (min-width: 720px) { ... }
+
+      mdpb: '920px',
+      // => @media (min-width: 920px) { ... }
+    },
     fontFamily: {
       sans: ['Avenir', 'Helvetica', 'Arial', 'sans-serif'],
     },
