@@ -1,5 +1,6 @@
-export default async function FetchLogin(url, data) {
+const FetchLogin = async (url, data) => {
   const fullUrl = '/api/v1/user/' + url
+  //console.log(url, data)
   try {
     const res = await fetch(fullUrl, {
       method: 'POST',
@@ -9,9 +10,11 @@ export default async function FetchLogin(url, data) {
       body: data,
     })
     const resdata = await res.json()
-    console.log('resdata', resdata)
+    //console.log('resdata', resdata)
     return resdata
   } catch (error) {
-    console.log(error)
+    console.log('error', error)
+    return error
   }
 }
+export default FetchLogin

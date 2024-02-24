@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -19,39 +19,40 @@ const SignIn = () => {
   const [formData, setFormData] = useState({})
   const { loading, error } = useSelector((state) => state.user)
 
-  useEffect(() => {
-    dispatch(signInInitial())
-  })
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value })
   }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const data = JSON.stringify(formData)
-    //console.log(data)
+    dispatch(signInInitial(null))
     dispatch(signInStart())
-    const result = await FetchLogin('login', data)
-    console.log('result', result)
-    if (result.status === 200) {
-      dispatch(signInSuccess(result))
-      console.log(result.body.token)
 
-      const token = result.body.token
-      Cookies.set('mytoken', token, { expires: 1, secure: false })
-      handleGetProfile(result.body.token)
+    let token = ''
+    const data = JSON.stringify(formData)
+    const resdata = await FetchLogin('login', data)
+    if (resdata.status !== 200) {
+      dispatch(signInFailure())
+      //console.log(error, error.message)
+      console.log(resdata.status, resdata.message)
     } else {
-      dispatch(signInFailure(result))
+      token = resdata.body.token
+      if (token !== '') {
+        //console.log(token)
+        Cookies.set('mytoken', token, { expires: 1, secure: false })
+        handleGetProfile(token)
+      }
     }
   }
+
   const handleGetProfile = async (token) => {
     const result = await FetchGetProfile('profile', token)
-    console.log('result', result)
+    //console.log('result', result)
     if (result.status === 200) {
       dispatch(signInSuccess(result))
       navigate('/user')
     } else {
-      dispatch(signInFailure(result))
+      dispatch(signInFailure())
     }
   }
   return (
@@ -97,7 +98,10 @@ const SignIn = () => {
                 Remember me
               </label>
             </div>
-            <button className="text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit">
+            <button
+              type="submit"
+              className="text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit"
+            >
               {loading ? 'Loading' : 'Sign In'}
             </button>
           </form>
@@ -112,7 +116,7 @@ const SignIn = () => {
         </Link>
       </div>
       <p className="text-red-700 mt-5">
-        {error ? error.message || 'Something went wrong' : ''}
+        {error ? error.message || 'Incorrect email/password !' : ''}
       </p>
     </div>
   )
