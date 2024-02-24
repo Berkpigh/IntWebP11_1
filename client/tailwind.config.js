@@ -13,9 +13,11 @@ export default {
       sans: ['Avenir', 'Helvetica', 'Arial', 'sans-serif'],
     },
     fontSize: {
+      '0.9rem': '0.9rem',
+      '1.1rem': '1.1rem',
+      '1.2rem': '1.2rem',
       '2em': '2em',
       '2.5rem': '2.5rem',
-      '1.1rem': '1.1rem',
     },
     colors: {
       grey: {
@@ -24,14 +26,24 @@ export default {
         fff: '#fff',
       },
     },
+    top: {
+      '50px': '50px',
+    },
+    right: {
+      '50px': '50px',
+    },
     width: {
       '100px': '100px',
+      '200px': '200px',
       '220px': '220px',
+      '250px': '250px',
       '300px': '300px',
       '364px': '364px',
     },
     height: {
       '211px': '211px',
+      '300px': '300px',
+      '400px': '400px',
     },
     borderWidth: {
       10: '10px',

@@ -11,19 +11,28 @@ const Home = () => {
   dispatch(profileDefaultPage('user'))
   return (
     <React.Fragment>
-      <div className="">
-        <div className="min-h-55vh max-h-80vh bg-[0_33%] bg-hero object-cover bg-cover bg-no-repeat relative">
-          <div className="absolute inset-y-8 right-5 h-211px w-364px bg-white p-8 text-left m-8">
+      {/* MAIN */}
+      <div className="min-h-80vh">
+        {/* Hero */}
+        <div className="min-h-55vh h-300px mdpb:h-400px bg-[0_-50px] mdpb:bg-[0_33%] bg-hero object-cover bg-cover bg-no-repeat relative">
+          {/* Hero-content */}
+          <div className="relative mdpb:absolute inset-y-8 mdpb:top-[50px] mdpb:right-[50px] w-250px mdpb:w-364px mdpb:h-211px  p-8  text-left bg-white mx-auto mr-auto mdpb:m-8">
             {/* <h2 className="sr-only">Promoted Content</h2> */}
-            <p className="font-bold text-xl m-0">No fees.</p>
-            <p className="font-bold text-xl m-0">No minimum deposit.</p>
-            <p className="font-bold text-xl m-0">High interest rates.</p>
-            <p className="mb-0 text-xl mt-4">
+            <p className="font-bold text-[1rem] mdpb:text-[1.5rem] leading-tight m-0">
+              No fees.
+            </p>
+            <p className="font-bold text-[1rem] mdpb:text-[1.5rem] leading-tight m-0">
+              No minimum deposit.
+            </p>
+            <p className="font-bold text-[1rem] mdpb:text-[1.5rem] leading-tight m-0">
+              High interest rates.
+            </p>
+            <p className="mb-0 text-0.9rem mdpb:text-1.2rem leading-tight mt-4">
               Open a savings account with Argent Bank today!
             </p>
           </div>
         </div>
-        <section className="grid grid-cols-3">
+        <section className="grid mdpb:grid-cols-3 grid-cols-1">
           {/* <h2 className="sr-only">Features</h2> */}
           <div className="p-10">
             <img
