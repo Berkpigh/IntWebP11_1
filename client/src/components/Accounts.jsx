@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import arrow from '../assets/img/arrow-left-3099.png'
 
 const Accounts = () => {
   const { defaultUserPage } = useSelector((state) => state.profile)
@@ -40,13 +41,7 @@ const Accounts = () => {
             <p className="m-0">Available Balance</p>
           </div>
           <div className="pl-96 mx-44 py-5 w-11/12">
-            <button
-              type="button"
-              className="block w-220px p-2 text-1.1rem  shadow-xs
-              font-bold my-4 bg-submit border-green-submit text-grey-fff"
-            >
-              View transactions
-            </button>
+            <img src={arrow} alt="flèche" />
           </div>
         </section>
       )}
@@ -86,13 +81,7 @@ const Accounts = () => {
             <p className="m-0">Available Balance</p>
           </div>
           <div className="pl-96 mx-44 py-5 w-11/12">
-            <button
-              type="submit"
-              className="block w-220px p-2 text-1.1rem  shadow-xs
-              font-bold my-4 bg-submit border-green-submit text-grey-fff"
-            >
-              View transactions
-            </button>
+            <img src={arrow} alt="flèche" />
           </div>
         </section>
       )}
@@ -132,13 +121,7 @@ const Accounts = () => {
             <p className="m-0">Current Balance</p>
           </div>
           <div className="pl-96 mx-44 py-5 w-11/12">
-            <button
-              type="submit"
-              className="block w-220px p-2 text-1.1rem  shadow-xs
-              font-bold my-4 bg-submit border-green-submit text-grey-fff"
-            >
-              View transactions
-            </button>
+            <img src={arrow} alt="flèche" />
           </div>
         </section>
       )}
