@@ -34,11 +34,11 @@ const Home = () => {
         </div>
         <section className="grid mdpb:grid-cols-3 grid-cols-1">
           {/* <h2 className="sr-only">Features</h2> */}
-          <div className="p-10">
+          <div className="p-10px">
             <img
               src={iconchat}
               alt="Icône de chat"
-              className="m-auto w-100px border-8 border-solid border-green-feature rounded-full p-4"
+              className="m-auto w-100px border-8px border-solid border-green-feature rounded-full p-4"
             />
             <h3 className="text-grey-222 text-xl font-bold mb-2">
               You are our #1 priority
@@ -48,11 +48,11 @@ const Home = () => {
               24/7 chat or through a phone call in less than 5 minutes.
             </p>
           </div>
-          <div className="p-10">
+          <div className="p-10px">
             <img
               src={iconmoney}
               alt="Icône de monnaie"
-              className="m-auto w-100px border-8 border-solid border-green-feature rounded-full p-4"
+              className="m-auto w-100px border-8px border-solid border-green-feature rounded-full p-4"
             />
             <h3 className="text-grey-222 text-xl font-bold mb-2">
               More savings means higher rates
@@ -61,11 +61,11 @@ const Home = () => {
               The more you save with us, the higher your interest rate will be!
             </p>
           </div>
-          <div className="p-10">
+          <div className="p-10px">
             <img
               src={iconsecurity}
               alt="Icône de paier valeur"
-              className="m-auto w-100px border-8 border-solid border-green-feature rounded-full p-4"
+              className="m-auto w-100px border-8px border-solid border-green-feature rounded-full p-4"
             />
             <h3 className="text-grey-222 text-xl font-bold mb-2">
               Security you can trust

@@ -60,6 +60,7 @@ export default {
     },
     borderWidth: {
       '1px': '1px',
+      '8px': '8px',
       10: '10px',
     },
     borderColor: {
